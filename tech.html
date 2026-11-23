@@ -1,1 +1,98 @@
-# tech-experience-atv-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Experience 2026 — Inscrição em Oficinas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <h1>Tech Experience 2026</h1>
+      <p>Inscrição nas oficinas técnicas do evento acadêmico.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Formulário de Inscrição</h2>
+
+      <div id="alerta-js" class="error-message" role="alert" hidden></div>
+
+      <form id="form-inscricao" action="processar.php" method="post" novalidate>
+        <div class="campo">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" required minlength="3" placeholder="Ex.: Seu Nome">
+          <span class="error-message" id="erro-nome"></span>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+          <span class="error-message" id="erro-email"></span>
+        </div>
+
+        <div class="campo">
+          <label for="experiencia">Nível de Experiência</label>
+          <select id="experiencia" name="experiencia" required>
+            <option value="">Selecione uma opção</option>
+            <option value="iniciante">Iniciante</option>
+            <option value="intermediario">Intermediário</option>
+            <option value="avancado">Avançado</option>
+          </select>
+          <span class="error-message" id="erro-experiencia"></span>
+        </div>
+
+        <fieldset class="campo grupo-opcoes">
+          <legend>Turno de preferência</legend>
+          <label class="opcao-item" for="turno-manha">
+            <input type="radio" id="turno-manha" name="turno" value="manha" required>
+            <span>Manhã</span>
+          </label>
+          <label class="opcao-item" for="turno-noite">
+            <input type="radio" id="turno-noite" name="turno" value="noite" required>
+            <span>Noite</span>
+          </label>
+          <span class="error-message" id="erro-turno"></span>
+        </fieldset>
+
+        <fieldset class="campo grupo-opcoes">
+          <legend>Oficinas de interesse</legend>
+          <label class="opcao-item" for="oficina-html-css">
+            <input type="checkbox" id="oficina-html-css" name="oficinas[]" value="html_css">
+            <span>HTML5 &amp; CSS3</span>
+          </label>
+          <label class="opcao-item" for="oficina-js-dom">
+            <input type="checkbox" id="oficina-js-dom" name="oficinas[]" value="js_dom">
+            <span>JavaScript &amp; DOM</span>
+          </label>
+          <label class="opcao-item" for="oficina-php-backend">
+            <input type="checkbox" id="oficina-php-backend" name="oficinas[]" value="php_backend">
+            <span>PHP Backend</span>
+          </label>
+          <span class="error-message" id="erro-oficinas"></span>
+        </fieldset>
+
+        <div class="campo">
+          <label for="mensagem">Mensagem / Motivação</label>
+          <textarea id="mensagem" name="mensagem" rows="4" maxlength="200" placeholder="Conte brevemente o que espera das oficinas..."></textarea>
+          <div class="contador-linha">
+            <span id="contador-mensagem" aria-live="polite">Restam 200 caracteres</span>
+            <span class="error-message" id="erro-mensagem"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-enviar">Confirmar inscrição</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Tech Experience 2026 — Portal Acadêmico de Oficinas</p>
+    </div>
+  </footer>
+</body>
+</html>
